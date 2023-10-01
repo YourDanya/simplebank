@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+//github.com/techschool/simplebank/util
+
 const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 func init() {

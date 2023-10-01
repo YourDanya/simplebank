@@ -3,8 +3,8 @@ package db
 import (
 	"context"
 	"database/sql"
+	"github.com/YourDanya/simplebank/util"
 	"github.com/stretchr/testify/require"
-	"github.com/techschool/simplebank/util"
 	"testing"
 	"time"
 )
