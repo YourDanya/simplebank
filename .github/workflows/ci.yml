@@ -18,7 +18,6 @@ jobs:
           POSTGRES_USER: root
           POSTGRES_PASSWORD: pass
           POSTGRES_DB: simple_bank
-          POSTGRES_HOST: 172.31.254.53
         ports:
           - 5432:5432
         options: >-
