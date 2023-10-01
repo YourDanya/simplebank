@@ -15,6 +15,7 @@ jobs:
       postgres:
         image: postgres:15
         env:
+          POSTGRES_HOST: 172.31.254.53
           POSTGRES_USER: root
           POSTGRES_PASSWORD: pass
           POSTGRES_DB: simple_bank
