@@ -7,13 +7,21 @@ createdb:
 dropdb:
 	docker exec -it postgres15 dropdb simple_bank
 
+dbUrl := postgresql://root:pass@172.31.254.53:5432/simple_bank?sslmode=disable
+
+dbUrlCi := postgresql://root:pass@localhost:5432/simple_bank?sslmode=disable
+
 migrateup:
-	migrate -path db/migration -database "postgresql://root:pass@172.31.254.53:5432/simple_bank?sslmode=disable" -verbose up 1
+	migrate -path db/migration -database "${dbUrl}" -verbose up 1
 
 migratedown:
-	migrate -path db/migration -database "postgresql://root:pass@172.31.254.53:5432/simple_bank?sslmode=disable" -verbose down 1
+	migrate -path db/migration -database "${dbUrl}" -verbose down 1
+
+migrateupci:
+	migrate -path db/migration -database "${dbUrlCi}" -verbose up 1
 
 makeFileDir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
 sqlc:
 	docker run --rm -v $(makeFileDir):/src -w /src sqlc/sqlc generate
 
